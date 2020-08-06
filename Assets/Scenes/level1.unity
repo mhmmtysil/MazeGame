@@ -414,6 +414,11 @@ PrefabInstance:
       propertyPath: joystick
       value: 
       objectReference: {fileID: 1972580035}
+    - target: {fileID: 2440080262094072175, guid: 8581958ceeb1de8419a5fa571448296c,
+        type: 3}
+      propertyPath: walkSpeed
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 2440080262094072176, guid: 8581958ceeb1de8419a5fa571448296c,
         type: 3}
       propertyPath: m_Name
@@ -1489,7 +1494,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   joystick: {fileID: 460528012}
-  smoothRot: 2
+  yOffset: 0
+  smoothRot: 1
 --- !u!1001 &681216817
 PrefabInstance:
   m_ObjectHideFlags: 0
