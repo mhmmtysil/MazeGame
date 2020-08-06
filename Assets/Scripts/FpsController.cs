@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class FpsController : MonoBehaviour
 {
-    public Transform cam;
     public Rigidbody rb;
     public float cameraRotationSpeed = 5f;
     public float rotationSmoothSpeed = 10f;
@@ -20,16 +19,11 @@ public class FpsController : MonoBehaviour
     public AudioSource LetterCollectSource;
     public AudioClip LetterCollectClip;
     public AudioClip SpeedUpClip;
-    private Joystick joystick;
-
-    void Awake()
-    {
-        joystick = FindObjectOfType<Joystick>();
-    }
+    public Joystick joystick;
 
     void Update()
     {
-        LookRotation();
+       // LookRotation();
         Movement();
     }
     void LookRotation()
@@ -73,15 +67,8 @@ public class FpsController : MonoBehaviour
     }
     void Movement()
     {
-        //Direction must Match Camera Direction
-        directionIntentX = cam.right;
-        directionIntentX.y = 0;
-        directionIntentX.Normalize();
-        directionIntentY = cam.forward;
-        directionIntentY.y = 0;
-        directionIntentY.Normalize();
         //Change our characters velocity in this direction
-        rb.velocity = directionIntentY * joystick.Vertical * speed + directionIntentX * joystick.Horizontal * speed + Vector3.up * rb.velocity.y;
+        rb.velocity = Vector3.forward * joystick.Vertical * speed + Vector3.right * joystick.Horizontal * speed + Vector3.up * rb.velocity.y;
         rb.velocity = Vector3.ClampMagnitude(rb.velocity, walkSpeed);
         speed = walkSpeed;
     }

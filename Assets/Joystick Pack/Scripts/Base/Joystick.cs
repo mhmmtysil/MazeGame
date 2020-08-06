@@ -8,7 +8,7 @@ public class Joystick : MonoBehaviour, IPointerDownHandler, IDragHandler, IPoint
     public float Horizontal { get { return (snapX) ? SnapFloat(input.x, AxisOptions.Horizontal) : input.x; } }
     public float Vertical { get { return (snapY) ? SnapFloat(input.y, AxisOptions.Vertical) : input.y; } }
     public Vector2 Direction { get { return new Vector2(Horizontal, Vertical); } }
-
+    public bool InRect { get; set; }
     public float HandleRange
     {
         get { return handleRange; }
@@ -141,8 +141,10 @@ public class Joystick : MonoBehaviour, IPointerDownHandler, IDragHandler, IPoint
         if (RectTransformUtility.ScreenPointToLocalPointInRectangle(baseRect, screenPosition, cam, out localPoint))
         {
             Vector2 pivotOffset = baseRect.pivot * baseRect.sizeDelta;
+            InRect = true;
             return localPoint - (background.anchorMax * baseRect.sizeDelta) + pivotOffset;
         }
+        InRect = false;
         return Vector2.zero;
     }
 }
