@@ -491,7 +491,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   joystick: {fileID: 460528012}
   yOffset: 0
-  smoothRot: 4
+  smoothRot: 2
 --- !u!4 &160930162 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2440080262094072170, guid: 8581958ceeb1de8419a5fa571448296c,
