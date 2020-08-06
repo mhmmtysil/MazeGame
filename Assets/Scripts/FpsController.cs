@@ -29,7 +29,7 @@ public class FpsController : MonoBehaviour
 
     void Update()
     {
-       // LookRotation();
+        LookRotation();
         Movement();
     }
     void LookRotation()
