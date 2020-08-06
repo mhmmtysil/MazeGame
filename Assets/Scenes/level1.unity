@@ -1495,7 +1495,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   joystick: {fileID: 460528012}
   yOffset: 0
-  smoothRot: 1
+  smoothRot: 4
 --- !u!1001 &681216817
 PrefabInstance:
   m_ObjectHideFlags: 0
