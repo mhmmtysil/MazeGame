@@ -30,9 +30,9 @@ public class AdConfiguration : MonoBehaviour
     public void RequestRewardBasedVideo()
     {
 #if UNITY_ANDROID
-            string adUnitId = "ca-app-pub-5390271097374264/9014237510"; //"ca-app-pub-3940256099942544/5224354917";
+            string adUnitId = "ca-app-pub-5390271097374264/9169208237";
 #elif UNITY_IPHONE
-            string adUnitId = "ca-app-pub-5390271097374264/5458135886";//"ca-app-pub-3940256099942544/1712485313";
+            string adUnitId = "ca-app-pub-5390271097374264/5458135886";
 #else
         string adUnitId = "unexpected_platform";
 #endif
@@ -68,9 +68,9 @@ public class AdConfiguration : MonoBehaviour
     private void RequestBanner()
     {
 #if UNITY_ANDROID
-            string adUnitId = "ca-app-pub-5390271097374264/5032961604"; //"ca-app-pub-3940256099942544/6300978111";
+            string adUnitId = "ca-app-pub-5390271097374264/7117759964";
 #elif UNITY_IPHONE
-            string adUnitId = "ca-app-pub-5390271097374264/4075103151"; //"ca-app-pub-3940256099942544/2934735716";
+            string adUnitId = "ca-app-pub-5390271097374264/4075103151";
 #else
         string adUnitId = "unexpected_platform";
 #endif
@@ -87,9 +87,9 @@ public class AdConfiguration : MonoBehaviour
     public void RequestInterstitial()
     {
 #if UNITY_ANDROID
-        string adUnitId =  "ca-app-pub-5390271097374264/6154471580";//"ca-app-pub-3940256099942544/1033173712";
+        string adUnitId = "ca-app-pub-5390271097374264/7559778943";
 #elif UNITY_IPHONE
-        string adUnitId = "ca-app-pub-5390271097374264/9135858146"; //"ca-app-pub-3940256099942544/4411468910";
+        string adUnitId = "ca-app-pub-5390271097374264/9135858146";
 #else
         string adUnitId = "unexpected_platform";
 #endif
