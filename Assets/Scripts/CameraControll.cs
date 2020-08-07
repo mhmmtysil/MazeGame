@@ -4,9 +4,14 @@ using UnityEngine;
 
 public class CameraControll : MonoBehaviour
 {
+    [HideInInspector]
     public Joystick joystick;
     public float yOffset = 0;
     public float smoothRot = 2f;
+    void Awake()
+    {
+        joystick = GameObject.FindGameObjectWithTag("CameraMover").GetComponent<Joystick>();
+    }
     void LateUpdate()
     {
         //transform.position = new Vector3(player.transform.position.x, transform.position.y, player.transform.position.z - 5);

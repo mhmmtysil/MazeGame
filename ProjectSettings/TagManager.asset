@@ -16,6 +16,8 @@ TagManager:
   - Y
   - I
   - Level
+  - PlayerMover
+  - CameraMover
   layers:
   - Default
   - TransparentFX

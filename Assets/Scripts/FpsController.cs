@@ -11,48 +11,43 @@ public class FpsController : MonoBehaviour
     private GameObject collisionWith;
     float bodyRotationX;
     float camRotationY;
-    Vector3 directionIntentX;
-    Vector3 directionIntentY;
     float speed;
     public int lenght;
     private int counter;
-    public AudioSource LetterCollectSource;
-    public AudioClip LetterCollectClip;
-    public AudioClip SpeedUpClip;
+    [HideInInspector]
     public Joystick joystick;
+    public Vector3 startingPos;
+    public void Initialize()
+    {
+        transform.position = startingPos;
+    }
+    void Start()
+    {
+        joystick = GameObject.FindGameObjectWithTag("PlayerMover").GetComponent<Joystick>();
+        startingPos = transform.position;
+    }
 
     void Update()
     {
        // LookRotation();
         Movement();
     }
-    void LookRotation()
-    {
-       
-      
-        //get the camera and body rotational values
-        bodyRotationX += Input.GetAxis("Mouse X") * cameraRotationSpeed;
 
-        //stop our camera from rotating 360 degrees
-        camRotationY = Mathf.Clamp(camRotationY, 0,0);
-        //Camera rotation targets and handle rotations of the body and camera
-        Quaternion camTargetRotation = Quaternion.Euler(-camRotationY, 0, 0);
-        Quaternion bodyTargetRotation = Quaternion.Euler(0, bodyRotationX, 0);
-        // handle rotations
-        transform.rotation = Quaternion.Lerp(transform.rotation, bodyTargetRotation, Time.deltaTime * rotationSmoothSpeed);
-    }
-    void OnTriggerEnter(Collider collisionSpeed)
+    void OnTriggerEnter(Collider c)
     {
-        if (collisionSpeed.CompareTag("SpeedUp"))
+        if (c.CompareTag("SpeedUp"))
         {
-            collisionWith = collisionSpeed.gameObject;
+            SoundConfiguration.Instance.PlaySpeedSound();
+            collisionWith = c.gameObject;
             Destroy(collisionWith.gameObject);
             walkSpeed += 5;
-            LetterCollectSource.PlayOneShot(clip: SpeedUpClip);
         }
        
-        if (collisionSpeed.CompareTag("Letters")) {
-            LetterCollectSource.PlayOneShot(clip: LetterCollectClip);
+        if (c.CompareTag("Letters")) {
+            Destroy(c.gameObject);
+            GameConfiguration.Instance.letters[c.GetComponent<Solution>().index].SetActive(true);
+            StageController();
+            SoundConfiguration.Instance.PlayCollectSound();
         }
 
     }
