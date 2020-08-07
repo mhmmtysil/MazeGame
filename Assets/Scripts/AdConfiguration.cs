@@ -55,6 +55,11 @@ public class AdConfiguration : MonoBehaviour
         // Initialize an InterstitialAd.
         this.interstitial = new InterstitialAd(adUnitId);
         this.interstitial.OnAdLoaded += HandleOnAdLoaded;
+
+        // Create an empty ad request.
+        AdRequest request = new AdRequest.Builder().Build();
+        // Load the interstitial with the request.
+        this.interstitial.LoadAd(request);
     }
 
     private void GameOver()
