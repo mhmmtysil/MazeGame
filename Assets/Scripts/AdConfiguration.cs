@@ -5,15 +5,23 @@ using GoogleMobileAds.Api;
 using System;
 public class AdConfiguration : MonoBehaviour
 {
+    public static AdConfiguration Instance { get; private set; }
     BannerView bannerView;
     InterstitialAd interstitial;
     // Start is called before the first frame update
     void Start()
     {
+        if(Instance != null)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
         MobileAds.Initialize(initStatus => { });
 
         RequestBanner();
         DontDestroyOnLoad(gameObject);
+        Instance = this;
     }
 
     private void RequestBanner()

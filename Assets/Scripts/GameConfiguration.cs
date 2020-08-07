@@ -194,6 +194,7 @@ public class GameConfiguration : MonoBehaviour
     public void NextLevel() {
         levelNow += 1;
         LevelOpened();
+        AdConfiguration.Instance.RequestInterstitial();
     }
     
     private void LevelOpened()
